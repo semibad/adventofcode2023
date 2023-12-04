@@ -1,0 +1,25 @@
+{
+  "name": "aoc-2023",
+  "version": "1.0.0",
+  "description": "Advent of Code 2023",
+  "main": "index.js",
+  "scripts": {
+    "go": "node -r esm "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semibad/adventofcode2023.git"
+  },
+  "author": "andi farr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semibad/adventofcode2023/issues"
+  },
+  "homepage": "https://github.com/semibad/adventofcode2023#readme",
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0"
+  }
+}
