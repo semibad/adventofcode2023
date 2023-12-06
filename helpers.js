@@ -15,4 +15,9 @@ const toMultidimensional = (day, file) => toStrings(day, file).map(row => row.sp
 // split into multidimensional grid, converted to numbers
 const toMultidimensionalNumeric = (day, file) => toMultidimensional(day, file).map(curr => Number(curr));
 
-export { readData, toStrings, toNumbers, toMultidimensional, toMultidimensionalNumeric };
+// split into blocks (double returns) then lines, strings
+const toBlocks = (day, file) => readData(day, file)
+    .split("\n\n")
+    .map(block => block.split("\n"));
+
+export { readData, toStrings, toNumbers, toMultidimensional, toMultidimensionalNumeric , toBlocks};

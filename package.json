@@ -4,7 +4,7 @@
   "description": "Advent of Code 2023",
   "main": "index.js",
   "scripts": {
-    "go": "node -r esm "
+    "go": "node --max-old-space-size=24576 -r esm "
   },
   "repository": {
     "type": "git",
