@@ -19,7 +19,7 @@ const solveRace = race => {
         const travelled = secs * perSec;
         if (travelled > race.dist) wins ++;
     }
-    return wins
+    return wins;
 };
 
 const partOne = source => parseRaceInfo(source).map(solveRace).reduce((total, curr) => total ? total * curr : curr, 0);
