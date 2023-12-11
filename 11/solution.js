@@ -46,14 +46,16 @@ const solve = (source, expansionDist = 1000000) => {
         });
     });
     // this time we have to run through the path and work out when we cross into expanded space
-    const distances = paths.map(path => path.reduce((out, step, i) => {
-        if (!i) return out; // skip the first one, we're looking at distances between
+    const distances = paths.map(path => path.reduce((sum, step, i) => {
+        if (!i) return sum; // skip the first one, we're looking at distances between
         const [stepX, stepY] = step;
         const [lastX, lastY] = path[i - 1];
-        const val = (stepX !== lastX && expansions.x.includes(stepX)) || (stepY !== lastY && expansions.y.includes(stepY)) ? expansionDist : 1;
-        return [...out, val];
-    }, []).reduce((sum, dist) => sum += dist, 0))
-    return(distances.reduce((sum, curr) => sum += curr, 0));
+        const val =
+            (stepX !== lastX && expansions.x.includes(stepX)) ||
+            (stepY !== lastY && expansions.y.includes(stepY)) ? expansionDist : 1;
+        return sum + val;
+    }, 0))
+    return distances.reduce((sum, curr) => sum += curr, 0);
 }
 
 // one
