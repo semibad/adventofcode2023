@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/semibad/adventofcode2023#readme",
   "dependencies": {
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "pathfinding": "^0.4.18"
   },
   "devDependencies": {
     "eslint": "^8.55.0"
