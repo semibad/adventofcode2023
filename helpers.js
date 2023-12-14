@@ -7,7 +7,7 @@ const readData = (day, file = 'data') => fs.readFileSync(`${__dirname}/${day}/${
 const toStrings = (day, file) => readData(day, file).split("\n");
 
 // split by line, converted to numbers, empty line returns undefined
-const toNumbers = (day, file) => toStrings(day, file).map(curr => curr === '' ? undefined : Number(curr));
+const toNumbers = (day, file) => toStrings(day, file).map(curr => curr === '' ? undefined : Number(curr)) || [];
 
 // split into multidimensional grid
 const toMultidimensional = (day, file) => toStrings(day, file).map(row => row.split(''));
@@ -20,4 +20,15 @@ const toBlocks = (day, file) => readData(day, file)
     .split("\n\n")
     .map(block => block.split("\n"));
 
-export { readData, toStrings, toNumbers, toMultidimensional, toMultidimensionalNumeric , toBlocks};
+    // split into blocks (double returns) then lines, arrays
+const toMultidimensionalBlocks = (day, file) => readData(day, file)
+.split("\n\n")
+.map(block => block.split("\n").map(row => row.split('')));
+
+// save a list of numbers
+const saveNumbers = (arr, day, filename = 'saved') => {
+    const contents = arr.join('\n');
+    fs.writeFileSync(`${__dirname}/${day}/${filename}.txt`, contents); // eslint-disable-line no-undef
+}
+
+export { readData, toStrings, toNumbers, toMultidimensional, toMultidimensionalNumeric, toBlocks, toMultidimensionalBlocks, saveNumbers };
