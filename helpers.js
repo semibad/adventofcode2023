@@ -31,6 +31,11 @@ const saveNumbers = (arr, day, filename = 'saved') => {
     fs.writeFileSync(`${__dirname}/${day}/${filename}.txt`, contents); // eslint-disable-line no-undef
 }
 
+// save a multiline string
+const saveString = (input, day, filename = 'render') => {
+    fs.writeFileSync(`${__dirname}/${day}/${filename}.txt`, input); // eslint-disable-line no-undef
+}
+
 // deep clone a data structure
 const deepClone = data => JSON.parse(JSON.stringify(data));
 
@@ -52,5 +57,5 @@ const hash = (str, seed = 0) => {
 
 export { 
     readData, toStrings, toNumbers, toMultidimensional, toMultidimensionalNumeric, 
-    toBlocks, toMultidimensionalBlocks, saveNumbers, deepClone, hash
+    toBlocks, toMultidimensionalBlocks, saveNumbers, saveString, deepClone, hash
 };
