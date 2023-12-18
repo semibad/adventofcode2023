@@ -79,6 +79,7 @@ const decodeInstructions = source => source.map(row => {
     }
 });
 
+// adapted from https://gist.github.com/tnraro/f6c0bf3daa711721d3ce0dea1c37124a 
 const shoelace = p => {
     let sum = 0;
     const len = p.length;
